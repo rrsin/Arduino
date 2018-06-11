@@ -1,5 +1,7 @@
 /* How to use the DHT-22 sensor with Arduino uno
-   Temperature and humidity sensor
+  Temperature and humidity sensor
+  Reuqires Adafruit DHT library + Adafruit_sensor Unified library to run
+
 */
 
 //Libraries
@@ -19,6 +21,7 @@ float temp; //Stores temperature value
 void setup()
 {
   Serial.begin(9600);
+  Serial.print("Getting things ready");
   dht.begin();
 }
 
@@ -34,7 +37,7 @@ void loop()
     Serial.print(" %, Temp: ");
     Serial.print(temp);
     Serial.println(" Celsius");
-    delay(10000); //Delay 1 sec.
+    delay(10000); //Delay 2 sec as the refresh rate of sensor is 0,5Hz.
 }
 
    
