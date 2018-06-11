@@ -1,9 +1,13 @@
+/* This code is meant to add visual queues (lights) to indicate moisture content of soil
+Goal is to add this to the Humidity_Sensor sketch
+*/ 
+
 int sensorPin = A0;
 int greenPin = 12;
 int yellowPin = 11;
 int redPin = 10;
 
-int sensorValue = 0;
+int sensorValue_1 = 0;
 
 
 void setup() {
@@ -27,15 +31,15 @@ void loop() {
    if (sensorValue_1 >= 70) {
     digitalWrite(greenPin, HIGH);
     digitalWrite(yellowPin, LOW);
-    digitalRead(redPin,LOW);
+    digitalWrite(redPin,LOW);
   } else if (sensorValue_1 >= 40) {
       digitalWrite(greenPin, LOW);
       digitalWrite(yellowPin, HIGH);
-      digitalRead(redPin,LOW);
+      digitalWrite(redPin,LOW);
   } else {
       digitalWrite(greenPin, LOW);
       digitalWrite(yellowPin, LOW);
-      digitalRead(redPin,HIGH);
+      digitalWrite(redPin,HIGH);
   }
 
   
