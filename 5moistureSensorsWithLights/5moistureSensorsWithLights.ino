@@ -7,26 +7,20 @@ const int sensorPin_4 = A3;
 const int sensorPin_5 = A4;
 
 //Initialize the 5 sets of LEDs - STILL NEED TO ADJUST PIN NUMBERS
-int greenPin_1 = 12;
-int yellowPin_1 = 11;
-int redPin_1 = 10;
+int greenPin_1 = 1;
+int yellowPin_1 = 2;
 
-int greenPin_2 = 12;
-int yellowPin_2 = 11;
-int redPin_2 = 10;
+int greenPin_2 = 3;
+int yellowPin_2 = 4;
 
-int greenPin_3 = 12;
-int yellowPin_3 = 11;
-int redPin_3 = 10;
+int greenPin_3 = 5;
+int yellowPin_3 = 6;
 
-int greenPin_4 = 12;
-int yellowPin_4 = 11;
-int redPin_4 = 10;
+int greenPin_4 = 7;
+int yellowPin_4 = 8;
 
-int greenPin_5 = 12;
-int yellowPin_5 = 11;
-int redPin_5 = 10;
-
+int greenPin_5 = 9;
+int yellowPin_5 = 10;
 
 
 //Initialize the 5 Moisture Sensore readings
@@ -44,10 +38,10 @@ Serial.println("Reading from the Sensors ...");
 
 }
 
-void loop() {
+void loop() { 
 
   sensorValue_1 = analogRead(sensorPin_1);
-  sensorValue_1 = map(sensorValue_1,1023,265,0,100); // map the sensore readings to a 0-100% scale, requires calibration of the lowest and highest expected measurements by the sensor
+  sensorValue_1 = map(sensorValue_1,1023,265,0,100); // map the sensor readings to a 0-100% scale, requires calibration of the lowest and highest expected measurements by the sensor
   sensorValue_2 = analogRead(sensorPin_2);
   sensorValue_2 = map(sensorValue_2,1023,265,0,100);
   sensorValue_3 = analogRead(sensorPin_3);
