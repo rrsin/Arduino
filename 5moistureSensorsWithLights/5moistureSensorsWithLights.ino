@@ -1,3 +1,12 @@
+/*This skech measures soil moisture and displays it in a colour sclae via LEDs:
+ * Moisture >=70% -> Green Light
+ * 70% > Moisture >= 40% -> Green + Yellow Light
+ *  Moisture < 40% -> Yellow Light
+ *  
+ *  Sketch is verified and works but sensor calibration is still required
+ */
+
+
 //Initialize the 5 Moisture Sensor Pins
 
 const int sensorPin_1 = A0;
@@ -6,21 +15,21 @@ const int sensorPin_3 = A2;
 const int sensorPin_4 = A3;
 const int sensorPin_5 = A4;
 
-//Initialize the 5 sets of LEDs - STILL NEED TO ADJUST PIN NUMBERS
-int greenPin_1 = 1;
-int yellowPin_1 = 2;
+//Initialize the 5 sets of LEDs
+int greenPin_1 = 2;
+int yellowPin_1 = 3;
 
-int greenPin_2 = 3;
-int yellowPin_2 = 4;
+int greenPin_2 = 4;
+int yellowPin_2 = 5;
 
-int greenPin_3 = 5;
-int yellowPin_3 = 6;
+int greenPin_3 = 6;
+int yellowPin_3 = 7;
 
-int greenPin_4 = 7;
-int yellowPin_4 = 8;
+int greenPin_4 = 8;
+int yellowPin_4 = 9;
 
-int greenPin_5 = 9;
-int yellowPin_5 = 10;
+int greenPin_5 = 10;
+int yellowPin_5 = 11;
 
 
 //Initialize the 5 Moisture Sensore readings
@@ -51,7 +60,68 @@ void loop() {
   sensorValue_5 = analogRead(sensorPin_5);
   sensorValue_5 = map(sensorValue_5,1023,265,0,100);
 
+//Light logic for Sensor 1
+  if (sensorValue_1 >= 70) {
+    digitalWrite(greenPin_1, HIGH);
+    digitalWrite(yellowPin_1, LOW);
+  } else if (sensorValue_1 >= 40) {
+    digitalWrite(greenPin_1, HIGH);
+    digitalWrite(yellowPin_1, HIGH);
+  } else {
+    digitalWrite(greenPin_1, LOW);
+    digitalWrite(yellowPin_1, HIGH);
+  }
 
+//Light logic for Sensor 2
+  if (sensorValue_2 >= 70) {
+    digitalWrite(greenPin_2, HIGH);
+    digitalWrite(yellowPin_2, LOW);
+  } else if (sensorValue_2 >= 40) {
+    digitalWrite(greenPin_2, HIGH);
+    digitalWrite(yellowPin_2, HIGH);
+  } else {
+    digitalWrite(greenPin_2, LOW);
+    digitalWrite(yellowPin_2, HIGH);
+  }
+
+  //Light logic for Sensor 3
+  if (sensorValue_1 >= 70) {
+    digitalWrite(greenPin_3, HIGH);
+    digitalWrite(yellowPin_3, LOW);
+  } else if (sensorValue_3 >= 40) {
+    digitalWrite(greenPin_3, HIGH);
+    digitalWrite(yellowPin_3, HIGH);
+  } else {
+    digitalWrite(greenPin_3, LOW);
+    digitalWrite(yellowPin_3, HIGH);
+  }
+
+  //Light logic for Sensor 4
+  if (sensorValue_4 >= 70) {
+    digitalWrite(greenPin_4, HIGH);
+    digitalWrite(yellowPin_4, LOW);
+  } else if (sensorValue_4 >= 40) {
+    digitalWrite(greenPin_4, HIGH);
+    digitalWrite(yellowPin_4, HIGH);
+  } else {
+    digitalWrite(greenPin_4, LOW);
+    digitalWrite(yellowPin_4, HIGH);
+  }
+
+//Light logic for Sensor 5
+  if (sensorValue_1 >= 70) {
+    digitalWrite(greenPin_5, HIGH);
+    digitalWrite(yellowPin_5, LOW);
+  } else if (sensorValue_5 >= 40) {
+    digitalWrite(greenPin_5, HIGH);
+    digitalWrite(yellowPin_5, HIGH);
+  } else {
+    digitalWrite(greenPin_5, LOW);
+    digitalWrite(yellowPin_5, HIGH);
+  }
+
+
+//Serial Monitor prints for checking and debugging
 Serial.print("Moisture Sensor 1: ");
 Serial.print(sensorValue_1);
 Serial.println("%");
